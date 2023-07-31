@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    padding-top: 30px;
+}
+
+.header-logo {
+    border: none;
+    display: block;
+    margin: 0 auto;
+
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    background-image: url("../../img/Logo.png");
+    background-position: 50% 33%;
+    border-radius: 100%;
+}
+
+.header-logo-img {
+    border-radius: 100%
+}

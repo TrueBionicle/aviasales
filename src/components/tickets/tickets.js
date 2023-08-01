@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Spin } from "antd";
 import "./tickets.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getTickets, getSearchID } from "../../store/asyncThunk";
@@ -12,6 +13,8 @@ const Tickets = () => {
   const valueFilterTransfer = useSelector((state) => state.valueFilterTransfer);
   const ticketsID = useSelector((state) => state.searchID);
   const error500 = useSelector((state) => state.skipError500);
+  const error = useSelector((state) => state.error);
+  const loading = useSelector((state) => state.loading);
   const ticketsFilter = tickets.filter((item) =>
     filterTicketByTransfer(item, showAllTickets, valueFilterTransfer)
   );
@@ -36,10 +39,11 @@ const Tickets = () => {
     }
     return `${resultHours}:${resultMinutes % 60}`;
   };
-  // console.log(ticketsFilter);
   if (ticketsFilter !== undefined) {
     return (
       <div className="tickets-wrapper">
+        {loading ? <Spin className="loading" size="large"></Spin> : null}
+
         {ticketsFilter.slice(0, ticketCounter).map((item) => {
           return (
             <div className="ticket" key={uniqueKey()}>
@@ -128,7 +132,7 @@ const Tickets = () => {
             </div>
           );
         })}
-        {valueFilterTransfer.length !== 0 ? (
+        {ticketsFilter.length !== 0 ? (
           <button
             className="btn-show-more"
             onClick={() => {
@@ -137,11 +141,27 @@ const Tickets = () => {
           >
             Показать еще 5
           </button>
-        ) : (
+        ) : null}
+        {loading === false && ticketsFilter.length === 0 && error === false && (
           <div className="not-found">
-            <div className="not-found-text">Результатов не найдено</div>
+            <div className="not-found-text">
+              Рейсов, подходящих под заданные фильтры, не найдено
+            </div>
           </div>
         )}
+        {error === true ? (
+          <div className="error">
+            <div className="error-inner">
+              <div className="error-text">Произошла ошибка</div>
+              <button
+                className="error-button"
+                onClick={() => window.location.reload()}
+              >
+                Попробовать еще раз
+              </button>
+            </div>
+          </div>
+        ) : null}
       </div>
     );
   }

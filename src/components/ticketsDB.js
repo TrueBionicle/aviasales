@@ -1,7 +1,3 @@
-import { useDispatch, useSelector } from "react-redux";
-// import { getTickets } from "./../services/services";
-import { getTickets } from "../store/ticketSlice";
-
 const TicketsDB = (data) => {
   return data.map((item) => {
     return {
@@ -16,9 +12,7 @@ const TicketsDB = (data) => {
           count: item.segments[0].stops.length,
           name: (() => {
             let result = "";
-            item.segments[0].stops.map((item) => {
-              result += `${item} `;
-            });
+            item.segments[0].stops.map((item) => (result += `${item} `));
             return result;
           })(),
         },
@@ -36,9 +30,7 @@ const TicketsDB = (data) => {
           count: item.segments[1].stops.length,
           name: (() => {
             let result = "";
-            item.segments[1].stops.map((item) => {
-              result += `${item} `;
-            });
+            item.segments[1].stops.map((item) => (result += `${item} `));
             return result;
           })(),
         },

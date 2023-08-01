@@ -18,6 +18,7 @@
   margin-bottom: 20px;
 
   box-shadow: 0px -1px 14px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 3px;
 }
 
 .ticket-header {
@@ -99,19 +100,114 @@
   padding: 20px;
 }
 
+.loading {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  padding: 20px 0 20px 0;
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  background-color: #aaaaaa98;
+}
+
+.error-inner {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 80px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+
+.error-text {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.error-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 120px;
+
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.error-button:hover {
+  background-color: #f1f1f1b9;
+}
+
 @media (max-width: 700px) {
   .tickets-wrapper {
-    margin-right: 0;
-    width: 90%;
-    margin-top: 2%;
+    height: auto;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+  }
+
+  .ticket-header {
+    padding: 20px 15px 0 15px;
   }
 
   .ticket {
-    width: inherit;
+    width: 80%;
     height: auto;
     background-color: #fff;
-    margin-bottom: 20px;
+    margin-top: 15px;
 
     box-shadow: 0px -1px 14px 0px rgba(34, 60, 80, 0.2);
+  }
+
+  .ticket-inner {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .ticket-inner-item {
+    position: relative;
+    flex-direction: column;
+  }
+
+  .ticket-inner-item:first-child:after {
+    position: absolute;
+    left: -5px;
+    bottom: 5px;
+    content: "";
+    width: 105%;
+    height: 2px;
+    border-bottom: 2px dotted #aaaaaa;
+  }
+  .ticket-inner-item-column {
+    width: 100%;
+  }
+
+  .loading {
+    margin: 0;
+    transform: none;
+  }
+
+  .btn-show-more {
+    width: 80%;
+  }
+
+  .not-found {
+    width: 80%;
   }
 }

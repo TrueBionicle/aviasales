@@ -72,6 +72,7 @@ const Options = () => {
     <div className="options">
       <h2 className="options-title">Количество пересадок</h2>
       <Checkbox
+        className="checkbox"
         name={"Все"}
         checked={checkedAllTicket}
         onChange={(event) => handleCheckboxChange(event)}
@@ -79,6 +80,7 @@ const Options = () => {
         Все
       </Checkbox>
       <Checkbox
+        className="checkbox"
         name="Zero"
         checked={checkedZero}
         onChange={(event) => handleCheckboxChange(event)}
@@ -86,6 +88,7 @@ const Options = () => {
         Без пересадок
       </Checkbox>
       <Checkbox
+        className="checkbox"
         name="One"
         checked={checkedOne}
         onChange={(event) => handleCheckboxChange(event)}
@@ -93,6 +96,7 @@ const Options = () => {
         1 пересадка
       </Checkbox>
       <Checkbox
+        className="checkbox"
         name="Two"
         checked={checkedTwo}
         onChange={(event) => handleCheckboxChange(event)}
@@ -100,6 +104,7 @@ const Options = () => {
         2 пересадки
       </Checkbox>
       <Checkbox
+        className="checkbox"
         name="Three"
         checked={checkedThree}
         onChange={(event) => handleCheckboxChange(event)}

@@ -36,10 +36,18 @@
   background-color: #2196f3;
 }
 
+.filter:focus {
+  color: #fff;
+  background-color: #2196f3;
+}
+
 @media (max-width: 700px) {
   .filters-wrapper {
-    margin-right: 0;
-    margin-top: 42vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    margin-top: 8%;
   }
   .filters {
     flex-direction: column;

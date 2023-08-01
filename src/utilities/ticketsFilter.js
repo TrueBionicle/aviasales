@@ -11,7 +11,7 @@ const compareOptimal = (item) => {
   return result;
 };
 
-export default (state, action) => {
+const filter = (state, action) => {
   switch (action) {
     case "MIN_PRICE":
       return state.toSorted((a, b) => {
@@ -29,3 +29,4 @@ export default (state, action) => {
       return state;
   }
 };
+export default filter;

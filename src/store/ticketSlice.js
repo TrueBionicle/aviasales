@@ -9,9 +9,8 @@ const ticketsSlice = createSlice({
     tickets: [],
     valueFilterTransfer: [],
     showAllTickets: true,
-    status: null,
     error: null,
-    loading: true,
+    loading: false,
     stop: false,
     skipError500: 0,
     searchID: false,
@@ -42,18 +41,24 @@ const ticketsSlice = createSlice({
       document.cookie = `searchId = ${action.payload}`;
       state.searchID = true;
     },
+    [getSearchID.rejected]: (state) => {
+      state.error = true;
+    },
     [getTickets.pending]: (state) => {
-      state.status = "loading";
+      state.loading = true;
       state.error = null;
     },
     [getTickets.fulfilled]: (state, action) => {
-      state.status = "resolved";
       state.stop = action.payload.stop;
       state.initialTickets = [
         ...state.tickets,
         ...TicketsDB(action.payload.tickets),
       ];
       state.tickets = [...state.tickets, ...TicketsDB(action.payload.tickets)];
+      state.error = false;
+      if (state.stop === true) {
+        state.loading = false;
+      }
     },
 
     [getTickets.rejected]: (state, action) => {

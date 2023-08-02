@@ -1,15 +1,16 @@
+import { getDurationHours, getDurationMinutes } from "./calcTime";
+
 const compareDuration = (item) => {
   const firstDuration =
-    item.segment1.durationHours * 60 + item.segment1.durationMinutes;
+    getDurationHours(item.segments[0].duration) * 60 +
+    getDurationMinutes(item.segments[0].duration);
   const secondDuration =
-    item.segment2.durationHours * 60 + item.segment2.durationMinutes;
+    getDurationHours(item.segments[1].duration) * 60 +
+    getDurationMinutes(item.segments[1].duration);
 
   return Math.min(firstDuration, secondDuration);
 };
-const compareOptimal = (item) => {
-  const result = item.price + compareDuration(item) * 20;
-  return result;
-};
+const compareOptimal = (item) => item.price + compareDuration(item) * 20;
 
 const filter = (state, action) => {
   switch (action) {

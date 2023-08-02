@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { filterReducer } from "../../store/ticketSlice";
 import "./filters.scss";
 import Options from "../options/options";
+import { setSelectedButton } from "../../utilities/setSelectedButton";
 const Filters = () => {
   const dispatch = useDispatch();
   return (
     <div className="filters-wrapper">
       <Options />
-      <div className="filters">
+      <div
+        className="filters"
+        onClick={(e) => {
+          setSelectedButton(e);
+        }}
+      >
         <button
           className="filter"
-          onClick={() => {
+          onClick={(e) => {
             dispatch(filterReducer("MIN_PRICE"));
           }}
         >

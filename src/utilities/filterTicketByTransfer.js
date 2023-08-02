@@ -5,8 +5,8 @@ const filterTicketByTransfer = (
 ) => {
   if (!showAllTickets) {
     return (
-      valueFilterTransfer.includes(ticket.segment1.stops.count) ||
-      valueFilterTransfer.includes(ticket.segment2.stops.count)
+      valueFilterTransfer.includes(ticket.segments[0].stops.length) ||
+      valueFilterTransfer.includes(ticket.segments[1].stops.length)
     );
   }
   return true;

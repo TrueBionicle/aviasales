@@ -54,7 +54,7 @@ const ticketsSlice = createSlice({
         ...state.tickets,
         ...TicketsDB(action.payload.tickets),
       ];
-      state.tickets = [...state.tickets, ...TicketsDB(action.payload.tickets)];
+      state.tickets = [...state.tickets, ...action.payload.tickets];
       state.error = false;
       if (state.stop === true) {
         state.loading = false;

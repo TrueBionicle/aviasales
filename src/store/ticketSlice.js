@@ -1,5 +1,4 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import TicketsDB from "../components/ticketsDB";
 import ticketsFilter from "../utilities/ticketsFilter";
 import { getSearchID, getTickets } from "./asyncThunk";
 
@@ -50,10 +49,6 @@ const ticketsSlice = createSlice({
     },
     [getTickets.fulfilled]: (state, action) => {
       state.stop = action.payload.stop;
-      state.initialTickets = [
-        ...state.tickets,
-        ...TicketsDB(action.payload.tickets),
-      ];
       state.tickets = [...state.tickets, ...action.payload.tickets];
       state.error = false;
       if (state.stop === true) {

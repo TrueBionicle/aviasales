@@ -38,6 +38,7 @@ const Tickets = () => {
     }
   }, [dispatch, stop, tickets, ticketsID, error500]);
   if (tickets.length !== 0) {
+    console.log(ticketsFilter);
     return (
       <div className="tickets-wrapper">
         {loading ? <Spin className="loading" size="large"></Spin> : null}
@@ -54,7 +55,7 @@ const Tickets = () => {
                 ></img>
               </div>
               {item.segments.map((segment) => (
-                <div className="ticket-inner">
+                <div className="ticket-inner" key={uniqueKey()}>
                   <div className="ticket-inner-item">
                     <div className="ticket-inner-item-column">
                       <span className="ticket-inner-suptitle">

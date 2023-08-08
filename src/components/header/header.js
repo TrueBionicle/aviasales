@@ -4,12 +4,9 @@ import "./header.scss";
 const Header = () => {
   return (
     <div className="header">
-      <button
-        className="header-logo"
-        onClick={() => {
-          window.location.reload();
-        }}
-      ></button>
+      <a href="../app/app.js" className="header-logo">
+        <img src={require("./../../assets/img/Logo.jpg")} alt="logo"></img>
+      </a>
     </div>
   );
 };

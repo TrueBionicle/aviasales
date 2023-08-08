@@ -38,14 +38,13 @@ const Tickets = () => {
     }
   }, [dispatch, stop, tickets, ticketsID, error500]);
   if (tickets.length !== 0) {
-    console.log(ticketsFilter);
     return (
-      <div className="tickets-wrapper">
+      <ul className="tickets-wrapper">
         {loading ? <Spin className="loading" size="large"></Spin> : null}
 
         {ticketsFilter.slice(0, ticketCounter).map((item) => {
           return (
-            <div className="ticket" key={uniqueKey()}>
+            <li className="ticket" key={uniqueKey()}>
               <div className="ticket-header">
                 <p className="ticket-price">{splitString(item.price)} ₽</p>
                 <img
@@ -92,7 +91,7 @@ const Tickets = () => {
                   </div>
                 </div>
               ))}
-            </div>
+            </li>
           );
         })}
         {ticketsFilter.length !== 0 ? (
@@ -126,7 +125,7 @@ const Tickets = () => {
             </div>
           </div>
         ) : null}
-      </div>
+      </ul>
     );
   }
 };

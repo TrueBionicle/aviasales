@@ -15,12 +15,10 @@
   display: block;
   width: 168px;
   height: 50px;
-  padding: 15px;
-
+  text-align: center;
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
-
   border: 1px solid #dfe5ec;
   color: #4a4a4a;
   background-color: #fff;
@@ -29,13 +27,16 @@
   transition:
     color 0.2s linear,
     background-color 0.2s linear;
+  span {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .filter:hover {
-  color: #fff;
-  background-color: #2196f3;
-}
-.filter-selected {
   color: #fff;
   background-color: #2196f3;
 }
@@ -62,4 +63,13 @@
     width: 80%;
     height: 60px;
   }
+}
+
+//// ANTD custom styles
+.ant-radio-button-wrapper {
+  border: 1px solid rgb(221, 221, 221) !important;
+}
+.ant-radio-button-wrapper-checked {
+  color: #fff !important;
+  background-color: #2196f3 !important;
 }

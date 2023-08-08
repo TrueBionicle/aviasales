@@ -1,17 +1,15 @@
 .header {
   width: 100%;
   padding-top: 30px;
+  text-align: center;
 }
 
 .header-logo {
   border: none;
-  display: block;
+  display: inline-block;
   margin: 0 auto;
 
   cursor: pointer;
-  width: 60px;
-  height: 60px;
-  background-image: url("../../assets/img/Logo.png");
   background-position: 50% 33%;
   border-radius: 100%;
 }
